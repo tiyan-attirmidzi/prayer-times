@@ -1,5 +1,6 @@
+let app = document.getElementById("app"); 
+
 function index() {
-    let app = document.getElementById("app");    
     let h3 = document.createElement("h3");
     h3.innerHTML = "Player Times";
 
@@ -30,7 +31,23 @@ function playerTimes(latitude, longitude) {
     ).then(function(response) {
         let date = new Date();
         let today = date.getDate() - 1;
-        console.log(response.data[today]);
+        let data = response.data[today].timings;
+        // element
+        let tabel = document.createElement('table');
+        let tabelTbody = document.createElement('tbody');
+
+        for(i in data) {
+            let row = tabelTbody.insertRow();
+            let name = row.insertCell(0);
+            let time = row.insertCell(1);
+            name.innerHTML = i;
+            time.innerHTML = data[i];
+            tabelTbody.appendChild(row);
+        };
+
+        tabel.appendChild(tabelTbody);
+        app.appendChild(tabel)
+
     });
 }
 
