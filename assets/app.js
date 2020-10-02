@@ -22,7 +22,8 @@ function success(position) {
 }
 
 function error() {
-    alert("Lokasi tidak dapat akses");
+    alert("Lokasi tidak dapat akses, waktu Sholat untuk wilayah Unaaha dan sekitarnya");
+    playerTimes('-3.863082','122.051922')
 }
 
 function playerTimes(latitude, longitude) {
